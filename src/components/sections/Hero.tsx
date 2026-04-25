@@ -17,7 +17,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-indigo-50/80 via-white to-cyan-50/80 dark:bg-[#0a0a0a] dark:bg-none"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-indigo-50/80 via-white to-cyan-50/80 dark:bg-[#0a0a0a] dark:bg-none w-full"
     >
       {/* 3D Background */}
       <Suspense fallback={null}>

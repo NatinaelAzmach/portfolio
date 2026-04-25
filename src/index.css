@@ -38,6 +38,9 @@
 /* Smooth scroll */
 html { scroll-behavior: smooth; }
 
+/* Prevent horizontal overflow on mobile */
+html, body { overflow-x: hidden; max-width: 100%; }
+
 /* Hide default cursor when custom cursor is active */
 body.custom-cursor * { cursor: none !important; }
 
