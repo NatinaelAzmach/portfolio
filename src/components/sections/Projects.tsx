@@ -20,7 +20,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-white/70 dark:bg-black/70 backdrop-blur-sm"
       onClick={onClose}
     >
       <motion.div
@@ -37,12 +37,12 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
         />
         <div className="p-8">
           <div className="flex items-start justify-between mb-4">
-            <h3 className="font-display text-2xl font-bold text-white">{project.title}</h3>
-            <button onClick={onClose} className="text-white/40 hover:text-white transition-colors p-1">
+            <h3 className="font-display text-2xl font-bold text-slate-900 dark:text-white">{project.title}</h3>
+            <button onClick={onClose} className="text-slate-900/40 dark:text-white/40 hover:text-slate-900 dark:text-white transition-colors p-1">
               <X size={20} />
             </button>
           </div>
-          <p className="text-white/60 leading-relaxed mb-6">{project.longDescription}</p>
+          <p className="text-slate-900/60 dark:text-white/60 leading-relaxed mb-6">{project.longDescription}</p>
           <div className="flex flex-wrap gap-2 mb-6">
             {project.tags.map(tag => (
               <span key={tag} className="px-3 py-1 text-xs font-mono bg-indigo-500/20 text-indigo-300 rounded-full border border-indigo-500/30">
@@ -59,7 +59,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
             )}
             {project.githubUrl && (
               <a href={project.githubUrl} target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-2 px-5 py-2.5 glass text-white text-sm rounded-xl border border-white/20 hover:bg-white/10 transition-colors">
+                className="flex items-center gap-2 px-5 py-2.5 glass text-slate-900 dark:text-white text-sm rounded-xl border border-slate-900/10 dark:border-white/20 hover:bg-slate-900/5 dark:bg-white/10 transition-colors">
                 <Github size={14} /> Source
               </a>
             )}
@@ -83,35 +83,50 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
       onClick={onClick}
     >
       {/* Image */}
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-48 overflow-hidden group/image">
         <img
           src={project.image}
           alt={project.title}
           loading="lazy"
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover/image:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
         {project.featured && (
-          <span className="absolute top-3 right-3 px-2 py-1 text-xs font-mono bg-indigo-600 text-white rounded-full">
+          <span className="absolute top-3 right-3 px-2 py-1 text-xs font-mono bg-indigo-600 text-white rounded-full z-10 pointer-events-none">
             Featured
           </span>
+        )}
+        
+        {/* Hover overlay for the Visit link */}
+        {project.demoUrl && (
+          <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+            <a
+              href={project.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={e => e.stopPropagation()}
+              className="flex items-center gap-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-medium transition-transform hover:scale-105 shadow-lg shadow-black/20"
+            >
+              <ExternalLink size={16} /> Visit Project
+            </a>
+          </div>
         )}
       </div>
 
       {/* Content */}
       <div className="p-5">
-        <h3 className="font-display font-bold text-white text-lg mb-2">{project.title}</h3>
-        <p className="text-white/50 text-sm leading-relaxed mb-4">{project.description}</p>
+        <h3 className="font-display font-bold text-slate-900 dark:text-white text-lg mb-2">{project.title}</h3>
+        <p className="text-slate-900/50 dark:text-white/50 text-sm leading-relaxed mb-4">{project.description}</p>
 
         {/* Tags */}
         <div className="flex flex-wrap gap-1.5 mb-4">
           {project.tags.slice(0, 3).map(tag => (
-            <span key={tag} className="px-2 py-0.5 text-xs font-mono bg-white/5 text-white/50 rounded-md">
+            <span key={tag} className="px-2 py-0.5 text-xs font-mono bg-slate-900/5 dark:bg-white/5 text-slate-900/50 dark:text-white/50 rounded-md">
               {tag}
             </span>
           ))}
           {project.tags.length > 3 && (
-            <span className="px-2 py-0.5 text-xs font-mono text-white/30">+{project.tags.length - 3}</span>
+            <span className="px-2 py-0.5 text-xs font-mono text-slate-900/30 dark:text-white/30">+{project.tags.length - 3}</span>
           )}
         </div>
 
@@ -125,7 +140,7 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
           )}
           {project.githubUrl && (
             <a href={project.githubUrl} target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs text-white/40 hover:text-white/70 transition-colors">
+              className="flex items-center gap-1.5 text-xs text-slate-900/40 dark:text-white/40 hover:text-slate-900/70 dark:text-white/70 transition-colors">
               <Github size={12} /> Code
             </a>
           )}
@@ -143,7 +158,7 @@ export function Projects() {
   const filtered = PROJECTS.filter(p => filter === 'all' || p.category === filter)
 
   return (
-    <section id="projects" className="py-32 bg-[#0d0d0d] relative">
+    <section id="projects" className="py-32 bg-slate-50/50 dark:bg-[#0d0d0d] relative">
       <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-600/10 rounded-full blur-3xl pointer-events-none" />
 
       <div ref={ref} className="max-w-6xl mx-auto px-4">
@@ -154,7 +169,7 @@ export function Projects() {
           className="text-center mb-16"
         >
           <p className="text-indigo-400 font-mono text-sm mb-3 tracking-widest uppercase">Work</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">
             Selected Projects
           </h2>
         </motion.div>
@@ -173,7 +188,7 @@ export function Projects() {
               className={`px-5 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
                 filter === f.value
                   ? 'bg-indigo-600 text-white neo-shadow-sm'
-                  : 'glass text-white/60 hover:text-white border border-white/10'
+                  : 'glass text-slate-900/60 dark:text-white/60 hover:text-slate-900 dark:text-white border border-slate-900/10 dark:border-white/10'
               }`}
             >
               {f.label}

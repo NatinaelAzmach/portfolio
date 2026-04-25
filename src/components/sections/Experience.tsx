@@ -17,7 +17,7 @@ function ExperienceItem({ exp, index }: { exp: typeof EXPERIENCES[0]; index: num
       className="relative pl-8 pb-10 last:pb-0"
     >
       {/* Timeline line */}
-      <div className="absolute left-0 top-0 bottom-0 w-px bg-white/10" />
+      <div className="absolute left-0 top-0 bottom-0 w-px bg-slate-900/5 dark:bg-white/10" />
       {/* Timeline dot */}
       <div className="absolute left-[-5px] top-1.5 w-2.5 h-2.5 rounded-full bg-indigo-500 border-2 border-[#0d0d0d]" />
 
@@ -31,15 +31,15 @@ function ExperienceItem({ exp, index }: { exp: typeof EXPERIENCES[0]; index: num
               <Building2 size={18} className="text-indigo-400" />
             </div>
             <div>
-              <h3 className="font-display font-bold text-white text-lg">{exp.role}</h3>
+              <h3 className="font-display font-bold text-slate-900 dark:text-white text-lg">{exp.role}</h3>
               <p className="text-indigo-400 text-sm">{exp.company}</p>
-              <p className="text-white/30 text-xs font-mono mt-0.5">{exp.period}</p>
+              <p className="text-slate-900/30 dark:text-white/30 text-xs font-mono mt-0.5">{exp.period}</p>
             </div>
           </div>
           <motion.div
             animate={{ rotate: expanded ? 180 : 0 }}
             transition={{ duration: 0.2 }}
-            className="text-white/30 flex-shrink-0 mt-1"
+            className="text-slate-900/30 dark:text-white/30 flex-shrink-0 mt-1"
           >
             <ChevronDown size={18} />
           </motion.div>
@@ -54,13 +54,13 @@ function ExperienceItem({ exp, index }: { exp: typeof EXPERIENCES[0]; index: num
               transition={{ duration: 0.3 }}
               className="overflow-hidden"
             >
-              <div className="pt-5 mt-5 border-t border-white/10">
-                <p className="text-white/60 text-sm mb-4">{exp.description}</p>
+              <div className="pt-5 mt-5 border-t border-slate-900/10 dark:border-white/10">
+                <p className="text-slate-900/60 dark:text-white/60 text-sm mb-4">{exp.description}</p>
 
                 {/* Achievements */}
                 <ul className="space-y-2 mb-4">
                   {exp.achievements.map((a, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-white/60">
+                    <li key={i} className="flex items-start gap-2 text-sm text-slate-900/60 dark:text-white/60">
                       <span className="text-indigo-400 mt-0.5 flex-shrink-0">▸</span>
                       {a}
                     </li>
@@ -88,7 +88,7 @@ export function Experience() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.05 })
 
   return (
-    <section id="experience" className="py-32 bg-[#0d0d0d] relative">
+    <section id="experience" className="py-32 bg-indigo-50/30 dark:bg-[#0d0d0d] relative">
       <div className="absolute top-1/2 right-0 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl -translate-y-1/2 pointer-events-none" />
 
       <div ref={ref} className="max-w-3xl mx-auto px-4">
@@ -98,7 +98,7 @@ export function Experience() {
           className="text-center mb-16"
         >
           <p className="text-indigo-400 font-mono text-sm mb-3 tracking-widest uppercase">Career</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white">Experience</h2>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">Experience</h2>
         </motion.div>
 
         <div>

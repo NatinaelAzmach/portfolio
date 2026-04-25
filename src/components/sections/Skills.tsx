@@ -6,6 +6,7 @@ import {
   ResponsiveContainer, Tooltip
 } from 'recharts'
 import { SKILLS } from '@/lib/data'
+import { useThemeContext } from '@/context/ThemeContext'
 
 const CATEGORIES = ['frontend', 'backend', 'devops', 'other'] as const
 
@@ -30,10 +31,10 @@ function SkillBar({ name, level, years, delay }: { name: string; level: number; 
       onMouseLeave={() => setHovered(false)}
     >
       <div className="flex justify-between items-center mb-1.5">
-        <span className="text-sm text-white/80">{name}</span>
+        <span className="text-sm text-slate-900/80 dark:text-white/80">{name}</span>
         <span className="text-xs font-mono text-indigo-400">{level}%</span>
       </div>
-      <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+      <div className="h-1.5 bg-slate-900/5 dark:bg-white/10 rounded-full overflow-hidden">
         <motion.div
           className="h-full bg-gradient-to-r from-indigo-500 to-cyan-400 rounded-full"
           initial={{ width: 0 }}
@@ -63,10 +64,13 @@ export function Skills() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
   const [activeCategory, setActiveCategory] = useState<typeof CATEGORIES[number]>('frontend')
 
+  const { theme } = useThemeContext()
+  const isDark = theme === 'dark'
+
   const filtered = SKILLS.filter(s => s.category === activeCategory)
 
   return (
-    <section id="skills" className="py-32 bg-[#0a0a0a] relative">
+    <section id="skills" className="py-32 bg-gradient-to-br from-white via-indigo-50/30 to-cyan-50/30 dark:bg-[#0a0a0a] dark:bg-none relative">
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-64 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
 
       <div ref={ref} className="max-w-6xl mx-auto px-4">
@@ -76,7 +80,7 @@ export function Skills() {
           className="text-center mb-16"
         >
           <p className="text-indigo-400 font-mono text-sm mb-3 tracking-widest uppercase">Expertise</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white">Skills & Tools</h2>
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">Skills & Tools</h2>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
@@ -87,11 +91,11 @@ export function Skills() {
             transition={{ delay: 0.2 }}
             className="glass rounded-2xl p-6"
           >
-            <p className="text-white/40 text-xs font-mono uppercase tracking-widest mb-4">Skill Radar</p>
+            <p className="text-slate-900/40 dark:text-white/40 text-xs font-mono uppercase tracking-widest mb-4">Skill Radar</p>
             <ResponsiveContainer width="100%" height={300}>
               <RadarChart data={RADAR_DATA}>
-                <PolarGrid stroke="rgba(255,255,255,0.1)" />
-                <PolarAngleAxis dataKey="subject" tick={{ fill: 'rgba(255,255,255,0.5)', fontSize: 12 }} />
+                <PolarGrid stroke={isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)"} />
+                <PolarAngleAxis dataKey="subject" tick={{ fill: isDark ? 'rgba(255,255,255,0.5)' : 'rgba(0,0,0,0.5)', fontSize: 12 }} />
                 <Radar
                   name="Skills"
                   dataKey="value"
@@ -101,8 +105,8 @@ export function Skills() {
                   strokeWidth={2}
                 />
                 <Tooltip
-                  contentStyle={{ background: '#1a1a2e', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 8 }}
-                  labelStyle={{ color: 'white' }}
+                  contentStyle={{ background: isDark ? '#1a1a2e' : '#ffffff', border: '1px solid rgba(99,102,241,0.3)', borderRadius: 8 }}
+                  labelStyle={{ color: isDark ? 'white' : 'black' }}
                   itemStyle={{ color: '#6366f1' }}
                 />
               </RadarChart>
@@ -124,7 +128,7 @@ export function Skills() {
                   className={`px-4 py-1.5 rounded-lg text-xs font-mono uppercase tracking-wider transition-all ${
                     activeCategory === cat
                       ? 'bg-indigo-600 text-white'
-                      : 'glass text-white/50 hover:text-white border border-white/10'
+                      : 'glass text-slate-900/50 dark:text-white/50 hover:text-slate-900 dark:text-white border border-slate-900/10 dark:border-white/10'
                   }`}
                 >
                   {cat}
@@ -143,7 +147,7 @@ export function Skills() {
                 />
               ))}
               {filtered.length === 0 && (
-                <p className="text-white/30 text-sm">No skills in this category yet.</p>
+                <p className="text-slate-900/30 dark:text-white/30 text-sm">No skills in this category yet.</p>
               )}
             </div>
           </motion.div>

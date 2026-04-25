@@ -21,7 +21,7 @@ export function Navbar() {
   return (
     <>
       {/* Scroll progress bar */}
-      <div className="fixed top-0 left-0 right-0 h-[2px] z-50 bg-white/5">
+      <div className="fixed top-0 left-0 right-0 h-[2px] z-50 bg-slate-900/5 dark:bg-white/5">
         <motion.div
           className="h-full bg-gradient-to-r from-indigo-500 to-cyan-400"
           style={{ scaleX: progress, transformOrigin: 'left' }}
@@ -49,7 +49,7 @@ export function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-sm text-white/70 hover:text-white transition-colors duration-200 relative group"
+                  className="text-sm text-slate-900/70 dark:text-white/70 hover:text-slate-900 dark:text-white transition-colors duration-200 relative group"
                 >
                   {link.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-indigo-400 group-hover:w-full transition-all duration-300" />
@@ -59,7 +59,7 @@ export function Navbar() {
             <li>
               <a
                 href="/about"
-                className="flex items-center gap-1.5 text-sm text-white/70 hover:text-white transition-colors duration-200 relative group"
+                className="flex items-center gap-1.5 text-sm text-slate-900/70 dark:text-white/70 hover:text-slate-900 dark:text-white transition-colors duration-200 relative group"
               >
                 <User size={13} />
                 Profile
@@ -73,7 +73,7 @@ export function Navbar() {
             <button
               onClick={toggle}
               aria-label="Toggle theme"
-              className="p-2 rounded-lg text-white/70 hover:text-white hover:bg-white/10 transition-all"
+              className="p-2 rounded-lg text-slate-900/70 dark:text-white/70 hover:text-slate-900 dark:text-white hover:bg-slate-900/5 dark:bg-white/10 transition-all"
             >
               {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
@@ -84,7 +84,7 @@ export function Navbar() {
               Hire Me
             </a>
             <button
-              className="md:hidden p-2 text-white/70 hover:text-white"
+              className="md:hidden p-2 text-slate-900/70 dark:text-white/70 hover:text-slate-900 dark:text-white"
               onClick={() => setMobileOpen(o => !o)}
               aria-label="Toggle menu"
             >
@@ -109,7 +109,7 @@ export function Navbar() {
                   <a
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="block text-white/80 hover:text-white text-lg font-medium transition-colors"
+                    className="block text-slate-900/80 dark:text-white/80 hover:text-slate-900 dark:text-white text-lg font-medium transition-colors"
                   >
                     {link.label}
                   </a>
@@ -119,7 +119,7 @@ export function Navbar() {
                 <a
                   href="/about"
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center gap-2 text-white/80 hover:text-white text-lg font-medium transition-colors"
+                  className="flex items-center gap-2 text-slate-900/80 dark:text-white/80 hover:text-slate-900 dark:text-white text-lg font-medium transition-colors"
                 >
                   <User size={16} /> Profile
                 </a>

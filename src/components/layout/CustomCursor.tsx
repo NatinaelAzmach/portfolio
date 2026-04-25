@@ -55,7 +55,7 @@ export function CustomCursor() {
       {/* Ring */}
       <motion.div
         ref={ringRef}
-        className="fixed top-0 left-0 w-8 h-8 border border-white/40 rounded-full pointer-events-none z-[9997] -translate-x-1/2 -translate-y-1/2 transition-transform duration-200"
+        className="fixed top-0 left-0 w-8 h-8 border border-slate-900/10 dark:border-white/40 rounded-full pointer-events-none z-[9997] -translate-x-1/2 -translate-y-1/2 transition-transform duration-200"
         style={{ x: ringX, y: ringY }}
       />
     </>

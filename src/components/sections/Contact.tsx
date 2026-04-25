@@ -25,7 +25,7 @@ function FloatingInput({
     onFocus: () => setFocused(true),
     onBlur: () => setFocused(false),
     className:
-      'w-full bg-transparent border border-white/10 rounded-xl px-4 pt-6 pb-2 text-white text-sm outline-none focus:border-indigo-500 transition-colors',
+      'w-full bg-transparent border border-slate-900/10 dark:border-white/10 rounded-xl px-4 pt-6 pb-2 text-slate-900 dark:text-white text-sm outline-none focus:border-indigo-500 transition-colors',
   }
 
   return (
@@ -46,7 +46,7 @@ function FloatingInput({
       )}
       <label
         htmlFor={id}
-        className={`absolute left-4 transition-all duration-200 pointer-events-none text-white/40 ${
+        className={`absolute left-4 transition-all duration-200 pointer-events-none text-slate-900/40 dark:text-white/40 ${
           active ? 'top-2 text-xs text-indigo-400' : 'top-4 text-sm'
         }`}
       >
@@ -79,7 +79,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-32 bg-[#0a0a0a] relative overflow-hidden">
+    <section id="contact" className="py-32 bg-gradient-to-t from-indigo-50/50 to-white dark:bg-[#0a0a0a] dark:bg-none relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(99,102,241,0.12)_0%,transparent_70%)] pointer-events-none" />
 
       <div ref={ref} className="max-w-5xl mx-auto px-4">
@@ -89,10 +89,10 @@ export function Contact() {
           className="text-center mb-16"
         >
           <p className="text-indigo-400 font-mono text-sm mb-3 tracking-widest uppercase">Get In Touch</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
             Let's Work Together
           </h2>
-          <p className="text-white/50 max-w-md mx-auto">
+          <p className="text-slate-900/50 dark:text-white/50 max-w-md mx-auto">
             I'm actively looking to collaborate with passionate developers, designers, and
             innovators. Let's build something relevant. Let's build something that matters.
           </p>
@@ -117,7 +117,7 @@ export function Contact() {
               className="w-full flex items-center justify-center gap-2 py-3 bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white font-medium rounded-xl transition-all neo-shadow"
             >
               {status === 'sending' ? (
-                <span className="animate-spin w-4 h-4 border-2 border-white/30 border-t-white rounded-full" />
+                <span className="animate-spin w-4 h-4 border-2 border-slate-900/10 dark:border-white/30 border-t-white rounded-full" />
               ) : (
                 <Send size={16} />
               )}
@@ -140,9 +140,9 @@ export function Contact() {
             <div className="glass rounded-2xl p-6">
               <div className="flex items-center gap-3 mb-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-white font-medium">Open to opportunities</span>
+                <span className="text-slate-900 dark:text-white font-medium">Open to opportunities</span>
               </div>
-              <p className="text-white/50 text-sm">
+              <p className="text-slate-900/50 dark:text-white/50 text-sm">
                 Recently graduated and actively looking for full-time roles or exciting
                 collaborations. Response time: within 24h.
               </p>
@@ -150,8 +150,8 @@ export function Contact() {
 
             {/* Email */}
             <div>
-              <p className="text-white/30 text-xs font-mono uppercase tracking-widest mb-3">Direct Email</p>
-              <a href="mailto:natinaelazmach0941421023@gmail.com" className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
+              <p className="text-slate-900/30 dark:text-white/30 text-xs font-mono uppercase tracking-widest mb-3">Direct Email</p>
+              <a href="mailto:natinaelazmach0941421023@gmail.com" className="flex items-center gap-2 text-slate-900/70 dark:text-white/70 hover:text-slate-900 dark:text-white transition-colors">
                 <Mail size={16} className="text-indigo-400" />
                 natinaelazmach0941421023@gmail.com
               </a>
@@ -159,11 +159,11 @@ export function Contact() {
 
             {/* Social */}
             <div>
-              <p className="text-white/30 text-xs font-mono uppercase tracking-widest mb-3">Social</p>
+              <p className="text-slate-900/30 dark:text-white/30 text-xs font-mono uppercase tracking-widest mb-3">Social</p>
               <div className="flex gap-4">
                 {[
                   { icon: Github, href: 'https://github.com/NatinaelAzmach/meh', label: 'GitHub' },
-                  { icon: Linkedin, href: 'https://linkedin.com/in/natinael', label: 'LinkedIn' },
+                  { icon: Linkedin, href: 'https://www.linkedin.com/in/natinael-azmach-1b9ab5404/', label: 'LinkedIn' },
                   { icon: Twitter, href: 'https://twitter.com/natinael', label: 'Twitter' },
                 ].map(({ icon: Icon, href, label }) => (
                   <motion.a
@@ -173,7 +173,7 @@ export function Contact() {
                     rel="noopener noreferrer"
                     aria-label={label}
                     whileHover={{ y: -3, scale: 1.1 }}
-                    className="w-10 h-10 glass rounded-xl flex items-center justify-center text-white/50 hover:text-white border border-white/10 hover:border-indigo-500/50 transition-colors"
+                    className="w-10 h-10 glass rounded-xl flex items-center justify-center text-slate-900/50 dark:text-white/50 hover:text-slate-900 dark:text-white border border-slate-900/10 dark:border-white/10 hover:border-indigo-500/50 transition-colors"
                   >
                     <Icon size={16} />
                   </motion.a>
@@ -185,7 +185,7 @@ export function Contact() {
             <a
               href="/resume.pdf"
               download
-              className="flex items-center gap-2 px-5 py-3 glass rounded-xl text-white/70 hover:text-white border border-white/10 hover:border-indigo-500/30 transition-all text-sm"
+              className="flex items-center gap-2 px-5 py-3 glass rounded-xl text-slate-900/70 dark:text-white/70 hover:text-slate-900 dark:text-white border border-slate-900/10 dark:border-white/10 hover:border-indigo-500/30 transition-all text-sm"
             >
               <Download size={16} className="text-indigo-400" />
               Download Resume (PDF)

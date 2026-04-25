@@ -11,7 +11,7 @@ export function NotFound() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center p-4 font-mono">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a] flex items-center justify-center p-4 font-mono">
       {/* Scanline effect */}
       <div
         className="fixed inset-0 pointer-events-none opacity-5"
@@ -52,7 +52,7 @@ export function NotFound() {
           ▶ INSERT COIN / GO HOME
         </motion.a>
 
-        <p className="mt-8 text-white/20 text-xs">
+        <p className="mt-8 text-slate-900/20 dark:text-white/20 text-xs">
           Press ↑↑↓↓←→←→BA for a surprise
         </p>
       </div>

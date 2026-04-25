@@ -26,7 +26,7 @@ export function About() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 })
 
   return (
-    <section id="about" className="py-32 bg-[#0a0a0a] relative overflow-hidden">
+    <section id="about" className="py-32 bg-gradient-to-b from-cyan-50/50 to-white dark:bg-[#0a0a0a] dark:bg-none relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl -translate-y-1/2 pointer-events-none" />
 
@@ -40,10 +40,10 @@ export function About() {
           {/* Bio */}
           <div>
             <p className="text-indigo-400 font-mono text-sm mb-3 tracking-widest uppercase">About Me</p>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
               I build solutions, not just apps
             </h2>
-            <div className="space-y-4 text-white/60 leading-relaxed">
+            <div className="space-y-4 text-slate-900/60 dark:text-white/60 leading-relaxed">
               <p>
                 Hey, I'm Natinael — a Computer Science graduate with an insatiable curiosity for
                 solving real-world problems through code. My journey has taken me from building
@@ -56,7 +56,7 @@ export function About() {
                 emerging markets, I thrive on creating solutions that make a tangible difference
                 in people's lives.
               </p>
-              <p className="italic text-white/40 border-l-2 border-indigo-500 pl-4">
+              <p className="italic text-slate-900/40 dark:text-white/40 border-l-2 border-indigo-500 pl-4">
                 "I don't just build apps — I build solutions for problems that people face every
                 day. Technology should serve humanity, and that's the philosophy I bring to every
                 project."
@@ -73,7 +73,7 @@ export function About() {
               </a>
               <a
                 href="#contact"
-                className="px-6 py-2.5 glass text-white text-sm font-medium rounded-xl border border-white/20 hover:bg-white/10 transition-colors"
+                className="px-6 py-2.5 glass text-slate-900 dark:text-white text-sm font-medium rounded-xl border border-slate-900/10 dark:border-white/20 hover:bg-slate-900/5 dark:bg-white/10 transition-colors"
               >
                 Let's Talk
               </a>
@@ -84,7 +84,7 @@ export function About() {
           <div className="space-y-10">
             {/* Floating tech icons */}
             <div>
-              <p className="text-white/40 text-xs font-mono uppercase tracking-widest mb-4">Tech Stack</p>
+              <p className="text-slate-900/40 dark:text-white/40 text-xs font-mono uppercase tracking-widest mb-4">Tech Stack</p>
               <div className="flex flex-wrap gap-3">
                 {TECH_STACK.map((tech, i) => (
                   <motion.div
@@ -93,7 +93,7 @@ export function About() {
                     animate={inView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ delay: i * 0.07, duration: 0.4 }}
                     whileHover={{ y: -4, scale: 1.05 }}
-                    className="glass px-3 py-2 rounded-xl text-sm text-white/80 flex items-center gap-2 cursor-default"
+                    className="glass px-3 py-2 rounded-xl text-sm text-slate-900/80 dark:text-white/80 flex items-center gap-2 cursor-default"
                   >
                     <span>{tech.emoji}</span>
                     <span>{tech.name}</span>
@@ -104,8 +104,8 @@ export function About() {
 
             {/* Timeline */}
             <div>
-              <p className="text-white/40 text-xs font-mono uppercase tracking-widest mb-4">Journey</p>
-              <div className="relative pl-6 border-l border-white/10 space-y-6">
+              <p className="text-slate-900/40 dark:text-white/40 text-xs font-mono uppercase tracking-widest mb-4">Journey</p>
+              <div className="relative pl-6 border-l border-slate-900/10 dark:border-white/10 space-y-6">
                 {TIMELINE.map((item, i) => (
                   <motion.div
                     key={item.year}
@@ -116,7 +116,7 @@ export function About() {
                   >
                     <div className="absolute -left-[25px] w-3 h-3 rounded-full bg-indigo-500 border-2 border-[#0a0a0a]" />
                     <span className="text-indigo-400 font-mono text-xs">{item.year}</span>
-                    <p className="text-white/70 text-sm mt-1">{item.event}</p>
+                    <p className="text-slate-900/70 dark:text-white/70 text-sm mt-1">{item.event}</p>
                   </motion.div>
                 ))}
               </div>

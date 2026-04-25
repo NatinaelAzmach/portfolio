@@ -90,16 +90,16 @@ function Avatar() {
       {/* Glow ring */}
       <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-500 via-purple-500 to-cyan-400 blur-2xl opacity-30 scale-105" />
       {/* Card */}
-      <div className="relative glass rounded-3xl w-full h-full flex flex-col items-center justify-center gap-4 border border-white/10 overflow-hidden">
+      <div className="relative glass rounded-3xl w-full h-full flex flex-col items-center justify-center gap-4 border border-slate-900/10 dark:border-white/10 overflow-hidden">
         {/* Initials */}
         <div className="w-28 h-28 rounded-2xl bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center">
-          <span className="font-display text-4xl font-bold text-white select-none">NA</span>
+          <span className="font-display text-4xl font-bold text-slate-900 dark:text-white select-none">NA</span>
         </div>
         <div className="text-center px-6">
-          <p className="font-display font-bold text-white text-xl">Natinael Azmach</p>
-          <p className="text-white/50 text-sm mt-1">CS Graduate · Developer</p>
+          <p className="font-display font-bold text-slate-900 dark:text-white text-xl">Natinael Azmach</p>
+          <p className="text-slate-900/50 dark:text-white/50 text-sm mt-1">CS Graduate · Developer</p>
           {/* Location */}
-          <div className="flex items-center justify-center gap-1.5 mt-3 text-white/40 text-xs">
+          <div className="flex items-center justify-center gap-1.5 mt-3 text-slate-900/40 dark:text-white/40 text-xs">
             <MapPin size={12} />
             <span>Ethiopia</span>
           </div>
@@ -115,7 +115,7 @@ function Avatar() {
         <div className="flex gap-3 pb-6">
           {[
             { icon: Github, href: 'https://github.com/NatinaelAzmach/meh', label: 'GitHub' },
-            { icon: Linkedin, href: 'https://linkedin.com/in/natinael', label: 'LinkedIn' },
+            { icon: Linkedin, href: 'https://www.linkedin.com/in/natinael-azmach-1b9ab5404/', label: 'LinkedIn' },
             { icon: Twitter, href: 'https://twitter.com/natinael', label: 'Twitter' },
             { icon: Mail, href: 'mailto:natinaelazmach@gmail.com', label: 'Email' },
           ].map(({ icon: Icon, href, label }) => (
@@ -126,7 +126,7 @@ function Avatar() {
               rel="noopener noreferrer"
               aria-label={label}
               whileHover={{ y: -3, scale: 1.1 }}
-              className="w-9 h-9 glass rounded-xl flex items-center justify-center text-white/50 hover:text-white border border-white/10 hover:border-indigo-500/40 transition-colors"
+              className="w-9 h-9 glass rounded-xl flex items-center justify-center text-slate-900/50 dark:text-white/50 hover:text-slate-900 dark:text-white border border-slate-900/10 dark:border-white/10 hover:border-indigo-500/40 transition-colors"
             >
               <Icon size={15} />
             </motion.a>
@@ -150,7 +150,7 @@ export function Profile() {
         />
       </Helmet>
 
-      <div className="min-h-screen bg-[#0a0a0a]">
+      <div className="min-h-screen bg-slate-50 dark:bg-[#0a0a0a]">
         {/* ── Hero banner ── */}
         <div className="relative pt-28 pb-20 px-4 overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.18)_0%,transparent_65%)] pointer-events-none" />
@@ -172,17 +172,17 @@ export function Profile() {
               transition={{ duration: 0.7, delay: 0.1 }}
             >
               <SectionLabel>Who I am</SectionLabel>
-              <h1 className="font-display text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+              <h1 className="font-display text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
                 A developer who builds for{' '}
                 <span className="gradient-text">people, not portfolios</span>
               </h1>
-              <p className="text-white/60 leading-relaxed mb-4">
+              <p className="text-slate-900/60 dark:text-white/60 leading-relaxed mb-4">
                 I'm Natinael — a Computer Science graduate with an insatiable curiosity for
                 solving real-world problems through code. My journey has taken me from building
                 utility apps that help communities cope with power outages, to creating social
                 platforms that connect university students in meaningful ways.
               </p>
-              <p className="text-white/60 leading-relaxed mb-8">
+              <p className="text-slate-900/60 dark:text-white/60 leading-relaxed mb-8">
                 I recently graduated and I'm at my best when the problem is messy, the
                 constraints are real, and the people who'll use the solution are right in
                 front of me. That's the kind of work I want to do more of.
@@ -192,8 +192,8 @@ export function Profile() {
               <div className="flex items-start gap-3 glass rounded-xl p-4 mb-6">
                 <GraduationCap size={20} className="text-indigo-400 flex-shrink-0 mt-0.5" />
                 <div>
-                  <p className="text-white font-medium text-sm">B.Sc. Computer Science</p>
-                  <p className="text-white/40 text-xs mt-0.5">Graduated 2026 · Computer Science</p>
+                  <p className="text-slate-900 dark:text-white font-medium text-sm">B.Sc. Computer Science</p>
+                  <p className="text-slate-900/40 dark:text-white/40 text-xs mt-0.5">Graduated 2026 · Computer Science</p>
                 </div>
               </div>
 
@@ -209,7 +209,7 @@ export function Profile() {
                 <a
                   href="/resume.pdf"
                   download
-                  className="flex items-center gap-2 px-6 py-2.5 glass text-white text-sm font-medium rounded-xl border border-white/20 hover:bg-white/10 transition-colors"
+                  className="flex items-center gap-2 px-6 py-2.5 glass text-slate-900 dark:text-white text-sm font-medium rounded-xl border border-slate-900/10 dark:border-white/20 hover:bg-slate-900/5 dark:bg-white/10 transition-colors"
                 >
                   <Download size={14} />
                   Download CV
@@ -220,22 +220,22 @@ export function Profile() {
         </div>
 
         {/* ── What I focus on ── */}
-        <section className="py-20 px-4 border-t border-white/5">
+        <section className="py-20 px-4 border-t border-slate-900/10 dark:border-white/5">
           <div className="max-w-5xl mx-auto">
             <FadeIn>
               <SectionLabel>Focus areas</SectionLabel>
-              <h2 className="font-display text-3xl font-bold text-white mb-10">
+              <h2 className="font-display text-3xl font-bold text-slate-900 dark:text-white mb-10">
                 What I actually work on
               </h2>
             </FadeIn>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {FOCUS_AREAS.map((area, i) => (
                 <FadeIn key={area.label} delay={i * 0.08}>
-                  <div className="glass rounded-2xl p-5 h-full hover:border-white/20 transition-colors border border-white/5">
+                  <div className="glass rounded-2xl p-5 h-full hover:border-slate-900/10 dark:border-white/20 transition-colors border border-slate-900/10 dark:border-white/5">
                     <div className={`w-10 h-10 rounded-xl ${area.bg} flex items-center justify-center mb-4`}>
                       <area.icon size={18} className={area.color} />
                     </div>
-                    <p className="text-white font-medium text-sm">{area.label}</p>
+                    <p className="text-slate-900 dark:text-white font-medium text-sm">{area.label}</p>
                   </div>
                 </FadeIn>
               ))}
@@ -244,14 +244,14 @@ export function Profile() {
         </section>
 
         {/* ── Philosophy / values ── */}
-        <section className="py-20 px-4 bg-[#0d0d0d]">
+        <section className="py-20 px-4 bg-white dark:bg-[#0d0d0d]">
           <div className="max-w-5xl mx-auto">
             <FadeIn>
               <SectionLabel>How I work</SectionLabel>
-              <h2 className="font-display text-3xl font-bold text-white mb-4">
+              <h2 className="font-display text-3xl font-bold text-slate-900 dark:text-white mb-4">
                 What you can expect from me
               </h2>
-              <blockquote className="border-l-2 border-indigo-500 pl-5 text-white/50 italic text-lg mb-12 max-w-2xl">
+              <blockquote className="border-l-2 border-indigo-500 pl-5 text-slate-900/50 dark:text-white/50 italic text-lg mb-12 max-w-2xl">
                 "I don't just build apps — I build solutions for problems that people face every
                 day. Technology should serve humanity, and that's the philosophy I bring to every
                 project."
@@ -261,14 +261,14 @@ export function Profile() {
             <div className="grid sm:grid-cols-2 gap-5">
               {VALUES.map((v, i) => (
                 <FadeIn key={v.title} delay={i * 0.1}>
-                  <div className="glass rounded-2xl p-6 h-full border border-white/5 hover:border-indigo-500/20 transition-colors">
+                  <div className="glass rounded-2xl p-6 h-full border border-slate-900/10 dark:border-white/5 hover:border-indigo-500/20 transition-colors">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-8 h-8 rounded-lg bg-indigo-500/15 flex items-center justify-center">
                         <v.icon size={16} className="text-indigo-400" />
                       </div>
-                      <p className="font-display font-semibold text-white">{v.title}</p>
+                      <p className="font-display font-semibold text-slate-900 dark:text-white">{v.title}</p>
                     </div>
-                    <p className="text-white/50 text-sm leading-relaxed">{v.desc}</p>
+                    <p className="text-slate-900/50 dark:text-white/50 text-sm leading-relaxed">{v.desc}</p>
                   </div>
                 </FadeIn>
               ))}
@@ -281,7 +281,7 @@ export function Profile() {
           <div className="max-w-5xl mx-auto">
             <FadeIn>
               <SectionLabel>Tech toolbox</SectionLabel>
-              <h2 className="font-display text-3xl font-bold text-white mb-10">
+              <h2 className="font-display text-3xl font-bold text-slate-900 dark:text-white mb-10">
                 Tools I reach for
               </h2>
             </FadeIn>
@@ -317,7 +317,7 @@ export function Profile() {
                   <div className={`glass rounded-2xl p-6 border ${group.color}`}>
                     <div className="flex items-center gap-2 mb-4">
                       <span className={`w-2 h-2 rounded-full ${group.dot}`} />
-                      <p className="text-white/60 text-xs font-mono uppercase tracking-widest">
+                      <p className="text-slate-900/60 dark:text-white/60 text-xs font-mono uppercase tracking-widest">
                         {group.category}
                       </p>
                     </div>
@@ -325,7 +325,7 @@ export function Profile() {
                       {group.tools.map(tool => (
                         <span
                           key={tool}
-                          className="px-3 py-1 text-xs font-medium text-white/70 bg-white/5 rounded-lg border border-white/10"
+                          className="px-3 py-1 text-xs font-medium text-slate-900/70 dark:text-white/70 bg-slate-900/5 dark:bg-white/5 rounded-lg border border-slate-900/10 dark:border-white/10"
                         >
                           {tool}
                         </span>
@@ -339,22 +339,22 @@ export function Profile() {
         </section>
 
         {/* ── Fun facts ── */}
-        <section className="py-20 px-4 bg-[#0d0d0d]">
+        <section className="py-20 px-4 bg-white dark:bg-[#0d0d0d]">
           <div className="max-w-3xl mx-auto">
             <FadeIn>
               <SectionLabel>A bit more</SectionLabel>
-              <h2 className="font-display text-3xl font-bold text-white mb-10">
+              <h2 className="font-display text-3xl font-bold text-slate-900 dark:text-white mb-10">
                 Things worth knowing
               </h2>
             </FadeIn>
             <div className="space-y-3">
               {FUN_FACTS.map((fact, i) => (
                 <FadeIn key={i} delay={i * 0.08}>
-                  <div className="flex items-start gap-4 glass rounded-xl px-5 py-4 border border-white/5">
+                  <div className="flex items-start gap-4 glass rounded-xl px-5 py-4 border border-slate-900/10 dark:border-white/5">
                     <span className="text-indigo-400 font-mono text-sm flex-shrink-0 mt-0.5">
                       {String(i + 1).padStart(2, '0')}
                     </span>
-                    <p className="text-white/70 text-sm leading-relaxed">{fact}</p>
+                    <p className="text-slate-900/70 dark:text-white/70 text-sm leading-relaxed">{fact}</p>
                   </div>
                 </FadeIn>
               ))}
@@ -369,10 +369,10 @@ export function Profile() {
             <p className="text-indigo-400 font-mono text-xs tracking-widest uppercase mb-4">
               Let's collaborate
             </p>
-            <h2 className="font-display text-4xl font-bold text-white mb-4">
+            <h2 className="font-display text-4xl font-bold text-slate-900 dark:text-white mb-4">
               Ready to build something that matters?
             </h2>
-            <p className="text-white/50 mb-8">
+            <p className="text-slate-900/50 dark:text-white/50 mb-8">
               I'm looking to work with people who care about impact. If that sounds like you,
               let's talk.
             </p>
@@ -386,7 +386,7 @@ export function Profile() {
               </a>
               <a
                 href="/"
-                className="px-8 py-3 glass text-white font-medium rounded-xl border border-white/20 hover:bg-white/10 transition-all"
+                className="px-8 py-3 glass text-slate-900 dark:text-white font-medium rounded-xl border border-slate-900/10 dark:border-white/20 hover:bg-slate-900/5 dark:bg-white/10 transition-all"
               >
                 View my work
               </a>
