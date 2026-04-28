@@ -29,7 +29,7 @@ export const PROJECTS: Project[] = [
       'A full-stack social platform built for university students to form study groups, share resources, organize campus events, and connect with peers across departments. Features real-time chat, a feed algorithm, and department-based communities.',
     category: 'fullstack',
     tags: ['React', 'Node.js', 'MongoDB', 'Firebase', 'Tailwind'],
-    image: 'unimatch-screenshot.png', // <-- REPLACE THIS WITH YOUR OWN PHOTO
+    image: '/unimatch-screenshot.png',
     demoUrl: 'https://uni-match-n.vercel.app', // <-- REPLACE THIS WITH YOUR LINK
     githubUrl: 'https://github.com/NatinaelAzmach/meh',
     featured: true,
@@ -42,7 +42,7 @@ export const PROJECTS: Project[] = [
       'A web platform that bridges the gap between city administrations and residents. Citizens can report issues, track service requests, view public announcements, and participate in local polls. Built with a PHP/MySQL backend and a React frontend.',
     category: 'fullstack',
     tags: ['React', 'PHP', 'MySQL', 'Tailwind', 'TypeScript'],
-    image: 'Negele borana.png',
+    image: '/Negele borana.png',
     demoUrl: 'https://negele-borana.vercel.app',
     githubUrl: 'https://github.com/NatinaelAzmach/meh',
     featured: true,
@@ -55,7 +55,7 @@ export const PROJECTS: Project[] = [
       'A React Native app and Node.js backend designed for real estate transactions in emerging markets where traditional listing platforms fall short. Features property search with map integration, agent profiles, in-app messaging, and a simplified offer flow.',
     category: 'mobile',
     tags: ['React Native', 'Node.js', 'MongoDB', 'Firebase', 'TypeScript'],
-    image: 'gojo.png',
+    image: '/gojo.png',
     demoUrl: 'https://gojo-et.vercel.app',
     githubUrl: 'https://github.com/NatinaelAzmach/meh',
     featured: false,
