@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import { HelmetProvider, Helmet } from 'react-helmet-async'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
@@ -140,6 +140,9 @@ function Avatar() {
 // ─── Page ────────────────────────────────────────────────────────────────────
 
 export function Profile() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }, [])
   return (
     <HelmetProvider>
       <Helmet>
