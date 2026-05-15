@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Moon, Sun, Menu, X, User } from 'lucide-react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useThemeContext } from '@/context/ThemeContext'
 import { useScrollProgress } from '@/hooks/useScrollProgress'
 import { NAV_LINKS } from '@/lib/data'
@@ -11,12 +12,27 @@ export function Navbar() {
   const progress = useScrollProgress()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const location = useLocation()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 50)
     window.addEventListener('scroll', handler, { passive: true })
     return () => window.removeEventListener('scroll', handler)
   }, [])
+
+  // If on /about, nav links should go back to home first then scroll
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (location.pathname !== '/') {
+      e.preventDefault()
+      navigate('/')
+      setTimeout(() => {
+        const el = document.querySelector(href)
+        if (el) el.scrollIntoView({ behavior: 'smooth' })
+      }, 100)
+    }
+    setMobileOpen(false)
+  }
 
   return (
     <>
@@ -39,9 +55,9 @@ export function Navbar() {
       >
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="font-display font-bold text-xl gradient-text">
+          <Link to="/" className="font-display font-bold text-xl gradient-text">
             {'<Dev />'}
-          </a>
+          </Link>
 
           {/* Desktop links */}
           <ul className="hidden md:flex items-center gap-8">
@@ -49,6 +65,7 @@ export function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
+                  onClick={e => handleNavClick(e, link.href)}
                   className="text-sm text-slate-900/70 dark:text-white/70 hover:text-slate-900 dark:text-white transition-colors duration-200 relative group"
                 >
                   {link.label}
@@ -57,14 +74,14 @@ export function Navbar() {
               </li>
             ))}
             <li>
-              <a
-                href="/about"
+              <Link
+                to="/about"
                 className="flex items-center gap-1.5 text-sm text-slate-900/70 dark:text-white/70 hover:text-slate-900 dark:text-white transition-colors duration-200 relative group"
               >
                 <User size={13} />
                 Profile
                 <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-indigo-400 group-hover:w-full transition-all duration-300" />
-              </a>
+              </Link>
             </li>
           </ul>
 
@@ -108,7 +125,7 @@ export function Navbar() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    onClick={() => setMobileOpen(false)}
+                    onClick={e => handleNavClick(e, link.href)}
                     className="block text-slate-900/80 dark:text-white/80 hover:text-slate-900 dark:text-white text-lg font-medium transition-colors"
                   >
                     {link.label}
@@ -116,18 +133,18 @@ export function Navbar() {
                 </li>
               ))}
               <li>
-                <a
-                  href="/about"
+                <Link
+                  to="/about"
                   onClick={() => setMobileOpen(false)}
                   className="flex items-center gap-2 text-slate-900/80 dark:text-white/80 hover:text-slate-900 dark:text-white text-lg font-medium transition-colors"
                 >
                   <User size={16} /> Profile
-                </a>
+                </Link>
               </li>
               <li>
                 <a
                   href="#contact"
-                  onClick={() => setMobileOpen(false)}
+                  onClick={e => handleNavClick(e, '#contact')}
                   className="block text-center px-4 py-2 bg-indigo-600 text-white rounded-lg font-medium"
                 >
                   Hire Me
